@@ -1,6 +1,12 @@
-require "lady_hollywood/version"
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 
-module LadyHollywood
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./lady_hollywood/version"
+require_relative "./lady_hollwood/cli"
+require_relative "./lady_hollwood/lady-hollywood"
+
+
+
+
+
