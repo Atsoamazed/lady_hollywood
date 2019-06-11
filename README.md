@@ -1,6 +1,6 @@
 # LadyHollywood
 
-This CLI program is all about the top ladies in Holloywood. Excute this file and
+This CLI program is all about the top ladies in Hollywood. Excute this file and
 you will see a ranking of the top 50 female characters in Hollywood. Select the
 ranking number and you will retrieve more details. Lady Hollwood app will print
 out the title, character name, actress name and summary.
