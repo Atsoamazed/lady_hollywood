@@ -7,8 +7,4 @@ require_relative "./lady_hollywood/cli"
 require_relative "./lady_hollywood/hollywood"
 #require_relative "./lady_hollywood/scrapper"
 require_relative "./lady_hollywood/movies"
-#require_relative "./lady_hollywood/shows"
-
-
-
-
+require_relative "./lady_hollywood/shows"
