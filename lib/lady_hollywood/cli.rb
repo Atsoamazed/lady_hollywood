@@ -1,3 +1,4 @@
+# This is where all the cli user interaction is.
 class LadyHollywood::CLI
 
 def call
