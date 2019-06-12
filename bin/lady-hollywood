@@ -2,4 +2,6 @@
 
 require "bundler/setup"
 require "lady_hollywood"
-LadyHollyWood::CLI.new.call
+require "./lib/lady_hollywood"
+
+LadyHollywood::CLI.new.call
