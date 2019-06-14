@@ -27,19 +27,23 @@ class LadyHollywood::CLI
       elsif char == "shows" || char == "s"
           puts "Here is the list of top female characters in hollywood shows"
         list_ranking
+          return menu until char == "exit"
       else
           puts "Sorry, your input is invalid, Please try again."
-      return menu until char == "exit" #Exist does not work. needs to break if user types exit
+     #Exist does not work. needs to break if user types exit
       end
+      exit
     end
 
 #WIP
-            def list_ranking
-              @ranking = LadyHollywood::Hollywood.ranks #list_movies return array of top female characters in movies
-               @ranking.each.with_index(1) do |rank, i, p, a|
-         puts "#{i}. #{rank.number} - #{rank.title} - #{rank.name}"
-            end
-            end
+def list_ranking
+  @ranking = LadyHollywood::Hollywood.ranks #list_movies return array of top female characters in movies
+   @ranking.each.with_index(1) do |rank, i, p|
+puts "#{rank.number} - #{rank.title} - #{rank.summary}"
+end
+get_details
+end
+
 #scrape needs order its just returning in chunks.
 # Also need to add to add in search by ranking, title, name option
 
