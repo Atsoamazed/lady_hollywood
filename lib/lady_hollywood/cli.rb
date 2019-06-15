@@ -6,6 +6,7 @@ class LadyHollywood::CLI
     menu
     list_ranking
     get_details
+    list_details
   end
 
   def start
@@ -18,28 +19,15 @@ class LadyHollywood::CLI
   end
 
     def menu
-       puts "Do you want the female ranking for movies or shows? Please enter [M/S]"
-       #add in for invalid entry
-          char = gets.strip.downcase
-      if char == "movie" || char == "m"
-          puts "Here is the list of top female characters in hollywood movies"
-          list_ranking #list_movies return array of top female characters in movies
-      elsif char == "shows" || char == "s"
-          puts "Here is the list of top female characters in hollywood shows"
-        list_ranking
-          return menu until char == "exit"
-      else
-          puts "Sorry, your input is invalid, Please try again."
-     #Exist does not work. needs to break if user types exit
-      end
-      exit
+          puts "Here is the list of top 50 female characters in hollywood"
+          list_ranking #Returns the list of ranking, title and character
     end
 
 #WIP
 def list_ranking
-  @ranking = LadyHollywood::Hollywood.ranks #list_movies return array of top female characters in movies
-   @ranking.each.with_index(1) do |rank, i, p|
-puts "#{rank.number} - #{rank.title} - #{rank.summary}"
+  @ranking = LadyHollywood::Hollywood.ranks
+   @ranking.each.with_index(1) do |num, t|
+     puts "#{rank.number} - #{rank.title}"
 end
 get_details
 end
@@ -48,11 +36,35 @@ end
 # Also need to add to add in search by ranking, title, name option
 
   def get_details
-    puts  "Enter the number of the ranking you'd like more info on"
-    puts "Type list to see the the full list again"
-    puts "Or type [exit] to exist:"
-    input = gets.strip
-  end
+    puts "Would you like to get more details on the top ranked female characters?[Y/N]"
+    details = gets.strip.downcase
+    puts "Please select from the following:"
+    puts "A) Enter the number of the ranking you'd like more details[1-50]"
+    puts "B) Type list to see the the full list again"
+    puts "C) Type [exit] to exit:"
 
+
+
+case details
+    #return menu until input == "exit"
+  when details == "A" || [1...50]
+        details = gets.strip.downcase
+      list_details #details include actress name, and summary
+    when details == "B"
+      list_ranking #repeat the list
+    when details == "C" #exits
+      exit
+    else
+      puts "Sorry, your input is invalid, Please try again."
+
+  end
+end
+def list_details
+  @ranking = LadyHollywood::Hollywood.ranks
+   @ranking.each.with_index(1) do |rank, p|
+     puts "#{rank.name} - #{rank.summary}"
+end
+ranking
+end
 
 end #class ending
