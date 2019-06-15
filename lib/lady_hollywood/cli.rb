@@ -1,9 +1,11 @@
 # This is where all the cli user interaction is.
 class LadyHollywood::CLI
   puts "Welcome to Lady Hollywood Gem!"
+
+
   def call
     start
-    menu
+    #menu
     list_ranking
     get_details
     list_details
@@ -16,23 +18,25 @@ class LadyHollywood::CLI
       puts "Sorry to hear that. Let's play another time! Bye bye."
       exit
     end
+    puts "Here is the list of top 50 female characters in hollywood"
+    list_ranking #Returns the list of ranking, title and character
   end
 
-    def menu
-          puts "Here is the list of top 50 female characters in hollywood"
-          list_ranking #Returns the list of ranking, title and character
-    end
+    #def menu
+    #      puts "Here is the list of top 50 female characters in hollywood"
+          #list_ranking #Returns the list of ranking, title and character
+  #  end
 
 #WIP
 def list_ranking
   @ranking = LadyHollywood::Hollywood.ranks
-   @ranking.each.with_index(1) do |num, t|
+   @ranking.each do |rank|
      puts "#{rank.number} - #{rank.title}"
+
 end
-get_details
+#get_details
 end
 
-#scrape needs order its just returning in chunks.
 # Also need to add to add in search by ranking, title, name option
 
   def get_details
@@ -59,6 +63,12 @@ case details
 
   end
 end
+
+=begin
+
+rescue ExceptionName
+
+end
 def list_details
   @ranking = LadyHollywood::Hollywood.ranks
    @ranking.each.with_index(1) do |rank, p|
@@ -66,5 +76,6 @@ def list_details
 end
 ranking
 end
+=end
 
 end #class ending
