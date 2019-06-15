@@ -38,8 +38,8 @@ List details should returns ranking, title and actress
 
 
 List by ranking entry [1-50] returns ranking, character, title, actress and summary
-1. Juno <br>
-Played by: Ellen Page <br>
+1. Juno
+Played by: Ellen Page 
 Summary: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
