@@ -19,7 +19,7 @@ class LadyHollywood::CLI
       exit
     end
     puts "Here is the list of top 50 female characters in hollywood"
-    list_ranking #Returns the list of ranking, title and character
+    list_ranking #Returns the list of ranking and character
   end
 
     #def menu
@@ -30,52 +30,51 @@ class LadyHollywood::CLI
 #WIP
 def list_ranking
   @ranking = LadyHollywood::Hollywood.ranks
-   @ranking.each do |rank|
-     puts "#{rank.number} - #{rank.title}"
-
+   @ranking.each.with_index(1) do |rank, i|
+     puts "#{i}. - #{rank.title}"
 end
-#get_details
+get_details
 end
 
 # Also need to add to add in search by ranking, title, name option
 
   def get_details
     puts "Would you like to get more details on the top ranked female characters?[Y/N]"
-    details = gets.strip.downcase
+    a = gets.strip.downcase
+    if a == "y"
     puts "Please select from the following:"
-    puts "A) Enter the number of the ranking you'd like more details[1-50]"
-    puts "B) Type list to see the the full list again"
+    puts "A) Enter the number of the ranking you'd like more details [1-50]"
+    puts "B) Type [list] to see the the full list again"
     puts "C) Type [exit] to exit:"
+    a = gets.strip.downcase
+  elsif a == "n"
+    puts "Okay bye bye!"
+    exit
+      else
+    puts "Sorry, your input is invalid, Please try again."
+    return get_details
 
 
+        #return menu until input == "exit"
+      if a == "A" || a == "a"
+          list_details #details include actress name, and summary
+      elsif a == "B" ||a == "list"
+          list_ranking #repeat the list
+      elsif a == "C" || a == exit #exits
+    
+      else
+          puts "Sorry, your input is invalid, Please try again."
+      end
+      end
+end # <- end to method.
 
-case details
-    #return menu until input == "exit"
-  when details == "A" || [1...50]
-        details = gets.strip.downcase
-      list_details #details include actress name, and summary
-    when details == "B"
-      list_ranking #repeat the list
-    when details == "C" #exits
-      exit
-    else
-      puts "Sorry, your input is invalid, Please try again."
-
-  end
-end
-
-=begin
-
-rescue ExceptionName
-
-end
 def list_details
   @ranking = LadyHollywood::Hollywood.ranks
-   @ranking.each.with_index(1) do |rank, p|
-     puts "#{rank.name} - #{rank.summary}"
+   @ranking.each do |rank, p|
+     puts "[#{rank.title} - Played by: #{rank.name}]"
 end
-ranking
+
 end
-=end
+
 
 end #class ending

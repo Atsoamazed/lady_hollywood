@@ -22,7 +22,7 @@ def self.scrape_list
   doc =
   Nokogiri::HTML(open("https://www.hollywoodreporter.com/lists/50-best-female-characters-entertainment-industry-survey-results-951483/item/peggy-olson-mad-men-50-favorite-female-characters-951489"))
 rank = self.new
-rank.number = doc.css("div.list-item__index").text
+#rank.number = doc.css("div.list-item__index").text
 rank.title = doc.css("h1.list-item__title").text
 rank
 end
