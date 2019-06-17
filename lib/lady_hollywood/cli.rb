@@ -56,12 +56,12 @@ end
 
 
         #return menu until input == "exit"
-      if a == "A" || a == "a"
+      if a == "A" || a == "a" || a == "list"
           list_details #details include actress name, and summary
       elsif a == "B" ||a == "list"
           list_ranking #repeat the list
       elsif a == "C" || a == exit #exits
-    
+
       else
           puts "Sorry, your input is invalid, Please try again."
       end
