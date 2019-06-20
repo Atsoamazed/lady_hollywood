@@ -1,19 +1,20 @@
 # This is where all the cli user interaction is.
 class LadyHollywood::CLI
   puts "Welcome to Lady Hollywood Gem!"
-
+  puts "This Cli will list the Top female characters in Hollywood"
+  puts "To quit, type 'exit'."
 
   def call
     start
-    #menu
     list_ranking
     get_details
+    menu_details
     list_details
     list_rank
   end
 
   def start
-    puts "Would you like to view the top female characters in hollywood?[Y/N]"
+    puts "Would you like to continue to view the top female characters in hollywood?[Y/N]"
           answer = gets.strip.downcase
     if answer == "n"
       puts "Sorry to hear that. Let's play another time! Bye bye."
@@ -29,7 +30,7 @@ class LadyHollywood::CLI
   #  end
 
 #WIP
-def list_ranking
+def list_ranking # <-move this to a different file
   @ranking = LadyHollywood::Hollywood.ranks
    @ranking.each.with_index(1) do |rank, i|
      puts "#{i}. - #{rank.title}"
@@ -44,16 +45,22 @@ end
     a = gets.strip.downcase
     if a == "y"
     puts "Please select from the following:"
-    puts "A) Enter the number of the ranking you'd like more details [1-50]"
-    puts "B) Type [list] to see the the full list again"
-    puts "C) Type [exit] to exit:"
-    a = gets.strip.downcase
-  elsif a == "n"
+      end
+      menu_details #this needs to return more_details method <broken
+    if a == "n"
     puts "Okay bye bye!"
     exit
       else
     puts "Sorry, your input is invalid, Please try again."
     return get_details
+
+
+      def menu_details #details menue
+    puts "A) Enter the ranking number you would like more details [1-50]" # <- return character, title, actress and summary then repeat menu
+    puts "B) Type [list] to see the the full list again" # < return rank, character and titile
+    puts "C) Type [quit] to exit:"
+    a = gets.strip.downcase
+    end
 
 
         #return menu until input == "exit"
@@ -65,16 +72,17 @@ end
 
       else
           puts "Sorry, your input is invalid, Please try again."
+          menu_details
       end
       end
 end # <- end to method.
 
-def list_details
+def list_details # <-move this to a different file
   @ranking = LadyHollywood::Hollywood.ranks
    @ranking.each do |rank, p|
      puts "[#{rank.title} - Played by: #{rank.name}]"
 end
-
+more_details
 end
 
 =begin
