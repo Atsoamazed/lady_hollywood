@@ -9,6 +9,7 @@ class LadyHollywood::CLI
     list_ranking
     get_details
     list_details
+    list_rank
   end
 
   def start
@@ -76,5 +77,12 @@ end
 
 end
 
-
+=begin
+# working on getting this to work to search by individual rank
+def list_rank
+  @ranking = LadyHollywood::Hollywood.ranks
+   @ranking.collect do |rank, p|
+     puts "[#{rank.title} - Played by: #{rank.name} - #{rank.summary}]"
+end
+=end
 end #class ending
